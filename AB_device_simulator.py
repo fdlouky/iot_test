@@ -21,7 +21,7 @@ import json
 # For this exercise it was generated as a random SHA1 hash with the next 2 lines.
 # import hashlib, random
 # device_id = "%032x" % random.getrandbits(128)
-device_id = 'd8e3499d40ae09abcbdafdcc9e8e3723'
+device_id = 'd4c874b526e4b8f60a017d19edae3b72'
    
 # Ask for a new credential to AA_device_credentials_generator
 # from AA_device_credentials_generator import create_credential

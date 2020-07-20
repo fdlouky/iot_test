@@ -78,7 +78,7 @@ def create_credential(device_id):
     
     # Load the historical credentials register.
     hist_creds = pd.read_csv(path + "\historical_credentials.csv",
-                                   header=0, sep=",").sort_values('device_id')
+                                   header=0, sep=",").sort_values('device_name')
     
     # If historical credentials has no credentials it means that it is the 
     # first time that a device is created, so create the first device.
