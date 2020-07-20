@@ -4,20 +4,19 @@ Created on Sat Jul 18 07:41:23 2020
 
 @author: Dlouky Federico Manuel
 
-This script simulates the creation of credentials for devices and only the
+This script simulates the creation of credentials for devices. Only the
 system administrator has the permissions to 
 execute create_credential(device_id) to create a credential for a given
 device_id.
 The new credential is generated and saved into "device_credentials" folder
 as a json file. Finally, some of the content of the credential is registered 
 in historical_credentials.csv (with the date when it was generated)
-to have a control on the credentials generated.
+to have a control on the generated credentials.
 Each json file has the following content:
     •	device_id: device identification. A random SHA1 hash from factory
     •	device_name: for this exercise, it will be an integer
     •	credential_creation_date: when the credential was created
     •	device_function: the tasks that the device must execute
-    
 """
 
 from datetime import datetime as dt
@@ -108,6 +107,5 @@ def create_credential(device_id):
     return path+"\device_"+str(new[0])+".json"
 
 # Only the system administrator has the permissions to execute the next lines
-# from AB_device_simulator import device_id
 # credential_path = create_credential(device_id)
     

@@ -18,7 +18,7 @@ import sys
 import json
 
 # Suppose the device_id comes from the factory.
-# For this exercise it was generated as a random SHA1 hash.
+# For this exercise it was generated as a random SHA1 hash with the next 2 lines.
 # import hashlib
 # device_id = "%032x" % random.getrandbits(128)
 device_id = 'a1669c2409456e9991f06783715934e7'
