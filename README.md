@@ -1,6 +1,6 @@
 # iot_test
 IoT Engineering Test 
-1.	AA_device_credentials_generator.py: It defines the tasks that the device must execute through the device_function variable.
+1.	AA_device_credentials_generator.py: It defines the tasks that the device must execute through the device_function variable and download the credentials to publish in IoT HUB.
 
 2.	AB_device_simulator.py: 
     a.	This script will be into each device. It has a device_id provided by the device factory. If a credential for this device exists into the device_credentials folder, it will download the json file where device_function is present. It recovers from the json all the tasks it should perform:
