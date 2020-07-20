@@ -19,9 +19,9 @@ import json
 
 # Suppose the device_id comes from the factory.
 # For this exercise it was generated as a random SHA1 hash with the next 2 lines.
-# import hashlib
+# import hashlib, random
 # device_id = "%032x" % random.getrandbits(128)
-device_id = 'a1669c2409456e9991f06783715934e7'
+device_id = 'd8e3499d40ae09abcbdafdcc9e8e3723'
    
 # Ask for a new credential to AA_device_credentials_generator
 # from AA_device_credentials_generator import create_credential
@@ -37,4 +37,8 @@ except:
     print("ERROR getting credential")
     sys.exit("Fatal error. Credential does not exists!")
 
+# Run the tasks reported in the credential
 exec(credential["device_function"])
+
+# Read the credential to publish on IoT HUB
+CONNECTION_STR_PUB = credential["CONNECTION_STR_PUB"]

@@ -9,9 +9,8 @@ This script publishes the payload generate by the device
 
 """
 
-from AB_device_simulator import device
+from AB_device_simulator import device, CONNECTION_STR_PUB
 import json
-from azure_mqtt_credentials.azure_dlouky_credentials import CONNECTION_STR_PUB
 from azure.iot.device import IoTHubDeviceClient, Message
 import time
 

@@ -18,8 +18,8 @@ print(db.list_collection_names())
 col.count_documents({})
 
 # Show all the documents in my database
-for doc in col.find({}):
-    print(doc,"\n")
+# for doc in col.find({}):
+#     print(doc,"\n")
 
 # Connect spark to MongoDB
 my_spark = SparkSession \

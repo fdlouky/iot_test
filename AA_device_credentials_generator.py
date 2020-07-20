@@ -17,11 +17,13 @@ Each json file has the following content:
     •	device_name: for this exercise, it will be an integer
     •	credential_creation_date: when the credential was created
     •	device_function: the tasks that the device must execute
+    •	CONNECTION_STR_PUB: Credentials to publish on IoT HUB
 """
 
 from datetime import datetime as dt
 import pandas as pd
 import json
+from azure_mqtt_credentials.azure_dlouky_credentials import CONNECTION_STR_PUB
 
 
 device_function = """
@@ -85,17 +87,16 @@ def create_credential(device_id):
         # Create the new device id and name
         new = [device_id,1000001]
         hist_creds.loc[0] = [new[0], new[1], dt.now()]
-        # Create the new credential content
-        credential = hist_creds.iloc[[-1],:].to_dict('records')[0]
-        credential["device_function"] = device_function
     else:
         # Get the last device id and name and create new id an name
         new = [device_id, hist_creds['device_name'].iloc[-1]+1]
         # Register in historical csv the new credential
         hist_creds.loc[len(hist_creds)] = [new[0], new[1], dt.now()]
-        # Create the new credential content
-        credential = hist_creds.iloc[[-1],:].to_dict('records')[0]
-        credential["device_function"] = device_function
+   
+    # Create the new credential content
+    credential = hist_creds.iloc[[-1],:].to_dict('records')[0]
+    credential["device_function"] = device_function
+    credential["CONNECTION_STR_PUB"] = CONNECTION_STR_PUB
     
     # Update the historical_credentials.csv
     hist_creds.to_csv(path + '\historical_credentials.csv',index=False)
@@ -104,8 +105,7 @@ def create_credential(device_id):
     with open(path+"\device_"+str(new[0])+".json", "w") as file:
         json.dump(credential, file, default = str)
     
-    return path+"\device_"+str(new[0])+".json"
 
 # Only the system administrator has the permissions to execute the next lines
-# credential_path = create_credential(device_id)
+# create_credential(device_id)
     
