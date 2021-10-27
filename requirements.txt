@@ -18,7 +18,7 @@ click==7.1.2
 cloudpickle==1.4.1
 colorama==0.4.3
 cryptography==2.9.2
-dask==2.19.0
+dask==2021.10.0
 decorator==4.4.2
 defusedxml==0.6.0
 diff-match-patch==20181111
